@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PersonaGraph | Interest-Aware Network</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript-warning">
+        PersonaGraph works best with JavaScript enabled. Please enable it to
+        generate adaptive content based on your interests.
+      </div>
+    </noscript>
+
+    <header class="top-nav">
+      <div class="brand">
+        <span class="brand-icon">PG</span>
+        <div>
+          <h1>PersonaGraph</h1>
+          <p class="brand-tagline">Curated knowledge for your evolving goals</p>
+        </div>
+      </div>
+      <div class="search-bar">
+        <input
+          type="search"
+          id="search"
+          placeholder="Search people, opportunities, or resources"
+          aria-label="Search PersonaGraph"
+        />
+      </div>
+      <nav class="nav-actions" aria-label="Primary">
+        <button type="button" class="nav-button" aria-label="Home feed">
+          <span>Home</span>
+        </button>
+        <button type="button" class="nav-button" aria-label="Network">
+          <span>Network</span>
+        </button>
+        <button type="button" class="nav-button" aria-label="Opportunities">
+          <span>Opportunities</span>
+        </button>
+        <button type="button" class="nav-button" aria-label="Messages">
+          <span>Messages</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar" aria-label="Profile and interest controls">
+        <section class="card profile-card">
+          <div class="profile-banner"></div>
+          <div class="profile-content">
+            <div class="avatar" aria-hidden="true">AL</div>
+            <h2>Alex Lane</h2>
+            <p class="profile-title">Product strategist · Community catalyst</p>
+            <ul class="profile-metrics">
+              <li><strong id="connectionCount">128</strong> connections</li>
+              <li><strong id="collaborationScore">87</strong> collaboration index</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card interest-card">
+          <header>
+            <h2>Shape your feed</h2>
+            <p>Select topics to generate your daily insight stream.</p>
+          </header>
+          <form id="interestForm">
+            <fieldset>
+              <legend class="sr-only">Choose interests</legend>
+              <div id="interestSelector" class="interest-selector"></div>
+            </fieldset>
+            <button type="button" id="generateButton" class="primary-button">
+              Refresh recommendations
+            </button>
+          </form>
+          <div class="active-interests" id="activeInterests" aria-live="polite"></div>
+        </section>
+
+        <section class="card cadence-card">
+          <h2>Momentum planner</h2>
+          <ul class="momentum-list" id="momentumList"></ul>
+        </section>
+      </aside>
+
+      <section class="main-feed" aria-label="Personalized feed">
+        <section class="card post-composer">
+          <h2>Share something meaningful today</h2>
+          <textarea
+            id="statusComposer"
+            rows="3"
+            placeholder="Start a conversation that energizes your network"
+            aria-label="Share an update"
+          ></textarea>
+          <div class="composer-actions">
+            <div class="chip-row">
+              <span class="chip">Idea</span>
+              <span class="chip">Opportunity</span>
+              <span class="chip">Question</span>
+            </div>
+            <button type="button" class="secondary-button">Save draft</button>
+            <button type="button" class="primary-button">Share</button>
+          </div>
+        </section>
+
+        <section class="card insight-banner" id="insightBanner">
+          <div>
+            <h2>Adaptive insight stream</h2>
+            <p>
+              PersonaGraph synthesizes career stories, learning paths, and
+              opportunities across your chosen interests.
+            </p>
+          </div>
+          <div class="insight-pills" id="insightPills"></div>
+        </section>
+
+        <div id="feedContainer" class="feed-container" aria-live="polite"></div>
+      </section>
+
+      <aside class="sidebar" aria-label="Highlights and opportunities">
+        <section class="card">
+          <h2>Quick introductions</h2>
+          <ul class="intro-list" id="introList"></ul>
+        </section>
+        <section class="card">
+          <h2>Opportunity radar</h2>
+          <ul class="opportunity-list" id="opportunityList"></ul>
+        </section>
+        <section class="card">
+          <h2>Learning spotlight</h2>
+          <ul class="learning-list" id="learningList"></ul>
+        </section>
+      </aside>
+    </main>
+
+    <section class="personality-hub" aria-labelledby="personalityHeading">
+      <div class="personality-header">
+        <div>
+          <h2 id="personalityHeading">Personality resonance hub</h2>
+          <p>
+            Tune how PersonaGraph communicates with you and your collaborators by
+            selecting an interaction style.
+          </p>
+        </div>
+        <div class="personality-select">
+          <label for="personalityType">Choose a personality lens</label>
+          <select id="personalityType" name="personalityType">
+            <option value="INFJ">INFJ · The Insightful Advocate</option>
+            <option value="ENTP">ENTP · The Visionary Challenger</option>
+            <option value="INTJ">INTJ · The Strategic Architect</option>
+            <option value="ENFP">ENFP · The Imaginative Connector</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="personality-grid">
+        <section class="card personality-card" id="personalityOverview"></section>
+        <section class="card personality-card" id="compatibilityPanel"></section>
+        <section class="card personality-card" id="conversationPanel"></section>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <div>
+        <strong>PersonaGraph Labs</strong>
+        <p>Designed to help multi-dimensional people create meaningful work.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Guiding principles</a>
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
